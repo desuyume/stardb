@@ -1,6 +1,35 @@
 {
-	"extends": ["react-app", "react-app/jest"],
-	"rules": {
-		"react-hooks/exhaustive-deps": "off"
-	}
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react/recommended",
+		"prettier"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"sourceType": "module"
+	},
+	"plugins": ["@typescript-eslint", "react", "prettier"],
+	"rules": {},
+	"settings": {
+		"import/resolver": {
+			"typescript": {}
+		}
+	},
+	"overrides": [
+		{
+			"files": ["**/*.ts", "**/*.tsx"],
+			"rules": {
+				"react/react-in-jsx-scope": "off"
+			}
+		}
+	]
 }

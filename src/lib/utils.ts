@@ -1,10 +1,10 @@
 export const formatCredits = (value: string) => {
 	if (!isNumber(value)) return 'unknown'
-	let dollars = new Intl.NumberFormat('en-US', {
+	const dollars = new Intl.NumberFormat('en-US', {
 		style: 'currency',
 		currency: 'USD'
 	}).format(+value)
-	return dollars.split('.')[0].replace(/,/g, '.')
+	return dollars.split('.')[0].replaceAll(',', '.')
 }
 
 export const formatDate = (value: string) => {
@@ -19,64 +19,67 @@ export const isNumber = (value: string) => {
 
 export const getStarshipId = (url: string) => {
 	const urlArray = url.split('/')
-	return urlArray[urlArray.length - 2]
+	return urlArray.at(-2)
 }
 
-export const generateQueryString = (params?: {
-	[key: string]: any
+export const generateQueryString = (parameters?: {
+	[key: string]: string | string[]
 }): string => {
-	if (!params) return ''
+	if (!parameters) return ''
 
-	const queryParams: string[] = []
+	const queryParameters: string[] = []
 
-	for (const key in params) {
-		if (!params[key]) continue
+	for (const key in parameters) {
+		if (!parameters[key]) continue
 
-		if (params.hasOwnProperty(key) && params[key] !== undefined) {
-			let paramValue = params[key]
-			if (Array.isArray(paramValue)) {
-				paramValue.forEach(value => {
-					queryParams.push(
+		if (
+			parameters.hasOwnProperty.call(parameters, key) &&
+			parameters[key] !== undefined
+		) {
+			const parameterValue = parameters[key]
+			if (Array.isArray(parameterValue)) {
+				for (const value of parameterValue) {
+					queryParameters.push(
 						`${encodeURIComponent(key)}=${encodeURIComponent(value)}`
 					)
-				})
+				}
 			} else {
-				queryParams.push(
-					`${encodeURIComponent(key)}=${encodeURIComponent(paramValue)}`
+				queryParameters.push(
+					`${encodeURIComponent(key)}=${encodeURIComponent(parameterValue)}`
 				)
 			}
 		}
 	}
 
-	return queryParams.length > 0 ? '?' + queryParams.join('&') : ''
+	return queryParameters.length > 0 ? `?${queryParameters.join('&')}` : ''
 }
 
 export const generatePagination = (c: number, m: number) => {
-	let current = c,
-		last = m,
-		delta = 2,
-		left = current - delta,
-		right = current + delta + 1,
-		range = [],
-		rangeWithDots = [],
-		l
+	const current = c
+	const last = m
+	const delta = 2
+	const left = current - delta
+	const right = current + delta + 1
+	const range = []
+	const rangeWithDots = []
+	let l
 
-	for (let i = 1; i <= last; i++) {
-		if (i === 1 || i === last || (i >= left && i < right)) {
-			range.push(i)
+	for (let index = 1; index <= last; index++) {
+		if (index === 1 || index === last || (index >= left && index < right)) {
+			range.push(index)
 		}
 	}
 
-	for (let i of range) {
+	for (const index of range) {
 		if (l) {
-			if (i - l === 2) {
+			if (index - l === 2) {
 				rangeWithDots.push(l + 1)
-			} else if (i - l !== 1) {
+			} else if (index - l !== 1) {
 				rangeWithDots.push('...')
 			}
 		}
-		rangeWithDots.push(i)
-		l = i
+		rangeWithDots.push(index)
+		l = index
 	}
 
 	return rangeWithDots

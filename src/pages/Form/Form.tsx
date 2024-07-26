@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import styles from './form.module.scss'
 import { formSchema, FormSchemaProps } from 'lib/schemas'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import styles from './form.module.scss'
 
 const Form: FC = () => {
 	const {

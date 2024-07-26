@@ -1,11 +1,11 @@
 import { FC, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetStarshipsIdQuery } from 'utils/api/hooks/useGetStarshipsIdQuery'
-import styles from './starships-id.module.scss'
 import { STARSHIP_IMAGE_URL } from 'utils/constants/starship'
 import { formatCredits, formatDate } from 'lib/utils'
 import noImage from 'assets/images/no-image.png'
 import { StarshipsIdSkeleton } from 'components/UI/Skeletons/Skeletons'
+import styles from './starships-id.module.scss'
 
 const StarshipsId: FC = () => {
 	const { id } = useParams()

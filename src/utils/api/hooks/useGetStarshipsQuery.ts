@@ -1,13 +1,17 @@
 import { useQuery } from 'react-query'
-import { getStarships, GetStarshipsParam } from '../requests/starships'
 import { STARSHIPS_QUERY_KEYS } from 'utils/constants/queryKeys'
+import {
+	getStarships,
+	GetStarshipsParam as GetStarshipsParameter
+} from '../requests/starships'
 
 export const useGetStarshipsQuery = (
-	params: GetStarshipsParam,
+	parameters: GetStarshipsParameter,
 	settings?: QuerySettings<typeof getStarships>
 ) =>
 	useQuery({
-		queryKey: [STARSHIPS_QUERY_KEYS.GET_STARSHIPS, params.query],
-		queryFn: () => getStarships({ params, config: settings?.config }),
+		queryKey: [STARSHIPS_QUERY_KEYS.GET_STARSHIPS, parameters.query],
+		queryFn: () =>
+			getStarships({ params: parameters, config: settings?.config }),
 		...settings?.options
 	})

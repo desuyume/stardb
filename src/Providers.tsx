@@ -1,12 +1,12 @@
 import { FC } from 'react'
 import { QueryProvider, QueryProviderProps } from 'utils/contexts/query'
 
-export interface ProvidersProps {
+export interface ProvidersProperties {
 	children: React.ReactNode
 	query: Omit<QueryProviderProps, 'children'>
 }
 
-const Providers: FC<ProvidersProps> = ({ query, children }) => {
+const Providers: FC<ProvidersProperties> = ({ query, children }) => {
 	return <QueryProvider {...query}>{children}</QueryProvider>
 }
 

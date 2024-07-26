@@ -13,7 +13,7 @@ export function PaginationButtonLeft({
 }) {
 	return isDisabled ? (
 		<button
-			disabled={true}
+			disabled
 			className={`${styles.paginationButtonLeft} ${styles.disabled}}`}
 		>
 			<ArrowIcon variant='light' direction='left' />
@@ -40,7 +40,7 @@ export function PaginationButtonRight({
 }) {
 	return isDisabled ? (
 		<button
-			disabled={true}
+			disabled
 			className={`${styles.paginationButtonRight} ${styles.disabled}}`}
 		>
 			<p>Далее</p>

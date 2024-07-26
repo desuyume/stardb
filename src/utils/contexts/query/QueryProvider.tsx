@@ -1,10 +1,10 @@
 import { QueryClientProvider } from 'react-query'
 
-export interface QueryProviderProps
+export interface QueryProviderProperties
 	extends React.ComponentProps<typeof QueryClientProvider> {
 	children: React.ReactNode
 }
 
-export const QueryProvider = ({ children, client }: QueryProviderProps) => (
-	<QueryClientProvider client={client}>{children}</QueryClientProvider>
-)
+export function QueryProvider({ children, client }: QueryProviderProperties) {
+	return <QueryClientProvider client={client}>{children}</QueryClientProvider>
+}

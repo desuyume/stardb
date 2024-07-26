@@ -1,15 +1,15 @@
 import { FC, useState } from 'react'
-import styles from './layout.module.scss'
 import { Link, useLocation } from 'react-router-dom'
 import { ROUTES } from 'utils/constants/routes'
 import MenuIcon from 'components/UI/Icons/MenuIcon'
 import CloseIcon from 'components/UI/Icons/CloseIcon'
+import styles from './layout.module.scss'
 
-interface LayoutProps {
+interface LayoutProperties {
 	children: React.ReactNode
 }
 
-const Layout: FC<LayoutProps> = ({ children }) => {
+const Layout: FC<LayoutProperties> = ({ children }) => {
 	const [isMenuMobileOpen, setIsMenuMobileOpen] = useState<boolean>(false)
 	const { pathname } = useLocation()
 

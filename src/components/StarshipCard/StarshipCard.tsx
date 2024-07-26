@@ -1,16 +1,16 @@
 import { FC, useState } from 'react'
 import { Link } from 'react-router-dom'
-import styles from './starship-card.module.scss'
 import { formatCredits, getStarshipId } from 'lib/utils'
 import { STARSHIP_IMAGE_URL } from 'utils/constants/starship'
 import { ROUTES } from 'utils/constants/routes'
 import noImage from 'assets/images/no-image.png'
+import styles from './starship-card.module.scss'
 
-interface StarshipCardProps {
+interface StarshipCardProperties {
 	starship: Starship
 }
 
-const StarshipCard: FC<StarshipCardProps> = ({
+const StarshipCard: FC<StarshipCardProperties> = ({
 	starship: { name, url, cost_in_credits }
 }) => {
 	const id = getStarshipId(url)

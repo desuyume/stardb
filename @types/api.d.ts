@@ -1,20 +1,20 @@
-interface MutationSettings<Params = void, Func = unknown> {
+interface MutationSettings<Parameters_ = void, Function_ = unknown> {
 	config?: ApiRequestConfig
 	options?: import('react-query').UseMutationOptions<
-		Awaited<ReturnType<Func>>,
+		Awaited<ReturnType<Function_>>,
 		any,
-		Params,
+		Parameters_,
 		any
 	>
 }
 
-interface QuerySettings<Func = unknown> {
+interface QuerySettings<Function_ = unknown> {
 	config?: ApiRequestConfig
 	options?: Omit<
 		import('react-query').UseQueryOptions<
-			Awaited<ReturnType<Func>>,
+			Awaited<ReturnType<Function_>>,
 			any,
-			Awaited<ReturnType<Func>>,
+			Awaited<ReturnType<Function_>>,
 			any
 		>,
 		'queryKey'
@@ -23,9 +23,9 @@ interface QuerySettings<Func = unknown> {
 
 type ApiRequestConfig = import('axios').AxiosRequestConfig
 
-type RequestConfig<Params = undefined> = Params extends undefined
+type RequestConfig<Parameters_ = undefined> = Parameters_ extends undefined
 	? { config?: ApiRequestConfig }
-	: { params: Params; config?: ApiRequestConfig }
+	: { params: Parameters_; config?: ApiRequestConfig }
 
 interface BaseResponse {
 	message: string

@@ -1,14 +1,14 @@
 import { api } from 'utils/api/instance'
 import { ENDPOINTS } from 'utils/constants/endpoints'
 
-export interface GetStarshipsIdParams {
+export interface GetStarshipsIdParameters {
 	id: string
 }
 
-type GetStarshipsIdRequestConfig = RequestConfig<GetStarshipsIdParams>
+type GetStarshipsIdRequestConfig = RequestConfig<GetStarshipsIdParameters>
 
-export const getStarshipsId = (params?: GetStarshipsIdRequestConfig) =>
+export const getStarshipsId = (parameters?: GetStarshipsIdRequestConfig) =>
 	api.get<Starship>(
-		`${ENDPOINTS.STARSHIPS}/${params?.params.id}`,
-		params?.config
+		`${ENDPOINTS.STARSHIPS}/${parameters?.params.id}`,
+		parameters?.config
 	)

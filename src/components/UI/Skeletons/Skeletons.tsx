@@ -1,6 +1,6 @@
 import styles from './skeletons.module.scss'
 
-export const StarshipCardSkeleton = () => {
+export function StarshipCardSkeleton() {
 	return (
 		<div className={styles.card}>
 			<div className={`${styles.cardImage} ${styles.shimmer}`} />
@@ -13,7 +13,7 @@ export const StarshipCardSkeleton = () => {
 	)
 }
 
-export const StarshipsSkeleton = () => {
+export function StarshipsSkeleton() {
 	return (
 		<div className={styles.cards}>
 			<StarshipCardSkeleton />
@@ -30,7 +30,7 @@ export const StarshipsSkeleton = () => {
 	)
 }
 
-export const StarshipsIdSkeleton = () => {
+export function StarshipsIdSkeleton() {
 	return (
 		<div className={styles.starshipsId}>
 			<div className={`${styles.headingText} ${styles.shimmer}`} />

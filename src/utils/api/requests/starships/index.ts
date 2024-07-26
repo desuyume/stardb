@@ -9,14 +9,14 @@ interface GetStarshipsResponse {
 	results: Starship[]
 }
 
-export interface GetStarshipsParam {
+export interface GetStarshipsParameter {
 	query?: {
 		search: string | null
 		page: number | null
 	}
 }
 
-type GetStarshipsRequestConfig = RequestConfig<GetStarshipsParam>
+type GetStarshipsRequestConfig = RequestConfig<GetStarshipsParameter>
 
 export const getStarships = ({ params, config }: GetStarshipsRequestConfig) => {
 	const queryString = generateQueryString(params.query)

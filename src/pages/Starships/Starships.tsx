@@ -1,11 +1,11 @@
 import { FC, useEffect, useState } from 'react'
-import styles from './starships.module.scss'
 import { useGetStarshipsQuery } from 'utils/api/hooks/useGetStarshipsQuery'
 import StarshipCard from 'components/StarshipCard/StarshipCard'
 import { getStarshipId, isNumber } from 'lib/utils'
 import { StarshipsSkeleton } from 'components/UI/Skeletons/Skeletons'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import Pagination from 'components/Pagination/Pagination'
+import styles from './starships.module.scss'
 
 type Sort = 'name' | 'cost'
 
@@ -17,7 +17,7 @@ const Starships: FC = () => {
 	const [filteredStarships, setFilteredStarships] = useState<Starship[]>([])
 
 	const { pathname } = useLocation()
-	const [searchParams] = useSearchParams()
+	const [searchParameters] = useSearchParams()
 	const navigate = useNavigate()
 
 	const {
@@ -38,10 +38,11 @@ const Starships: FC = () => {
 		const sortedStarships = [...starshipsResponse.data.results]
 
 		switch (sort) {
-			case 'name':
+			case 'name': {
 				sortedStarships.sort((a, b) => a.name.localeCompare(b.name))
 				break
-			case 'cost':
+			}
+			case 'cost': {
 				sortedStarships.sort((a, b) => {
 					if (!isNumber(a.cost_in_credits)) {
 						return 1
@@ -53,6 +54,7 @@ const Starships: FC = () => {
 					return Number(b.cost_in_credits) - Number(a.cost_in_credits)
 				})
 				break
+			}
 		}
 
 		setFilteredStarships(sortedStarships)
@@ -60,38 +62,38 @@ const Starships: FC = () => {
 
 	const searchStarships = () => {
 		setSearchQuery(searchValue)
-		const params = new URLSearchParams(searchParams)
+		const parameters = new URLSearchParams(searchParameters)
 		if (searchValue) {
-			params.set('search', searchValue)
+			parameters.set('search', searchValue)
 		} else {
-			params.delete('search')
+			parameters.delete('search')
 		}
-		params.set('page', '1')
-		navigate(`${pathname}?${params.toString()}`)
+		parameters.set('page', '1')
+		navigate(`${pathname}?${parameters.toString()}`)
 	}
 
-	const checkSearchParams = () => {
-		const searchParam = searchParams.get('search') ?? ''
-		const pageParam = Number(searchParams.get('page') ?? 1)
-		const sortParam = searchParams.get('sort')
+	const checkSearchParameters = () => {
+		const searchParameter = searchParameters.get('search') ?? ''
+		const pageParameter = Number(searchParameters.get('page') ?? 1)
+		const sortParameter = searchParameters.get('sort')
 
-		setSearchValue(searchParam)
-		setSearchQuery(searchParam)
-		setCurrentPage(pageParam)
-		if (sortParam !== 'name' && sortParam !== 'cost') {
-			if (!sortParam) return
-			const params = new URLSearchParams(searchParams)
+		setSearchValue(searchParameter)
+		setSearchQuery(searchParameter)
+		setCurrentPage(pageParameter)
+		if (sortParameter !== 'name' && sortParameter !== 'cost') {
+			if (!sortParameter) return
+			const parameters = new URLSearchParams(searchParameters)
 			setSort('name')
-			params.set('sort', 'name')
-			navigate(`${pathname}?${params.toString()}`)
+			parameters.set('sort', 'name')
+			navigate(`${pathname}?${parameters.toString()}`)
 		} else {
-			setSort(sortParam)
+			setSort(sortParameter)
 		}
 	}
 
 	useEffect(() => {
-		checkSearchParams()
-	}, [searchParams])
+		checkSearchParameters()
+	}, [searchParameters])
 
 	useEffect(() => {
 		sortStarships()
@@ -111,9 +113,9 @@ const Starships: FC = () => {
 						onChange={e => {
 							const chosenSort = e.target.value as Sort
 							setSort(chosenSort)
-							const params = new URLSearchParams(searchParams)
-							params.set('sort', chosenSort)
-							navigate(`${pathname}?${params.toString()}`)
+							const parameters = new URLSearchParams(searchParameters)
+							parameters.set('sort', chosenSort)
+							navigate(`${pathname}?${parameters.toString()}`)
 						}}
 					>
 						<option value='name'>Name</option>

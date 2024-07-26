@@ -17,18 +17,18 @@ const Pagination: FC<{
 	clickPageCallback?: () => void
 }> = ({ totalPages, clickPageCallback }) => {
 	const { pathname } = useLocation()
-	const [searchParams] = useSearchParams()
+	const [searchParameters] = useSearchParams()
 	const navigate = useNavigate()
 
-	const currentPage = searchParams.get('page')
-		? Number(searchParams.get('page'))
+	const currentPage = searchParameters.get('page')
+		? Number(searchParameters.get('page'))
 		: 1
 	const allPages = generatePagination(currentPage, totalPages)
 
 	const createPageURL = (pageNumber: number | string) => {
-		const params = new URLSearchParams(searchParams)
-		params.set('page', pageNumber.toString())
-		return `${pathname}?${params.toString()}`
+		const parameters = new URLSearchParams(searchParameters)
+		parameters.set('page', pageNumber.toString())
+		return `${pathname}?${parameters.toString()}`
 	}
 
 	useEffect(() => {
