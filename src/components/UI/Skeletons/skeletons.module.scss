@@ -1,0 +1,171 @@
+@import 'assets/styles/variables.scss';
+
+.shimmer {
+	display: inline-block;
+	height: 1em;
+	position: relative;
+	overflow: hidden;
+	background-color: #dddbdd;
+
+	&::after {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		transform: translateX(-100%);
+		background-image: linear-gradient(
+			90deg,
+			rgba(#fff, 0) 0,
+			rgba(#fff, 0.2) 20%,
+			rgba(#fff, 0.5) 60%,
+			rgba(#fff, 0)
+		);
+		animation: shimmer 5s infinite;
+		content: '';
+	}
+
+	@keyframes shimmer {
+		100% {
+			transform: translateX(100%);
+		}
+	}
+}
+
+.card {
+	width: 24.0625rem;
+	height: 24.8125rem;
+	border-radius: 0.625rem;
+	background-color: $light;
+	padding-top: 1.25rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+	padding-bottom: 1.875rem;
+
+	@media (max-width: $mediumMaxWidth) {
+		width: 21.25rem;
+		height: 20.625rem;
+		padding-top: 1.0625rem;
+		padding-left: 1.125rem;
+		padding-right: 1.125rem;
+		padding-bottom: 1.25rem;
+	}
+
+	.cardImage {
+		width: 21.5625rem;
+		height: 13.8125rem;
+		border-radius: 0.625rem;
+		margin-bottom: 2rem;
+
+		@media (max-width: $mediumMaxWidth) {
+			width: 19rem;
+			height: 12.1875rem;
+			margin-bottom: 1.25rem;
+		}
+	}
+
+	.cardInfo {
+		width: 100%;
+		height: 2.4375rem;
+		border-radius: 0.625rem;
+
+		@media (max-width: $mediumMaxWidth) {
+			height: 1.9375rem;
+		}
+
+		&:first-of-type {
+			margin-bottom: 0.875rem;
+
+			@media (max-width: $mediumMaxWidth) {
+				margin-bottom: 1rem;
+			}
+		}
+	}
+}
+
+.cards {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 3.875rem;
+
+	@media (max-width: $mediumMaxWidth) {
+		justify-content: space-around;
+		align-items: center;
+		gap: 1.25rem;
+	}
+}
+
+.starshipsId {
+	.headingText {
+		width: 15rem;
+		height: 4.375rem;
+		border-radius: 0.625rem;
+		margin-bottom: 3.75rem;
+
+		@media (max-width: $mediumMaxWidth) {
+			height: 3rem;
+			margin-bottom: 1.1875rem;
+		}
+	}
+
+	.infoContainer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 5rem;
+
+		@media (max-width: $mediumMaxWidth) {
+			flex-direction: column;
+			margin-bottom: 1.25rem;
+		}
+
+		.cardImage {
+			width: 39rem;
+			height: 26.1875rem;
+			border-radius: 0.625rem;
+
+			@media (max-width: $mediumMaxWidth) {
+				width: 100%;
+				height: auto;
+				aspect-ratio: 340/228;
+				margin-bottom: 1.25rem;
+			}
+		}
+
+		.info {
+			width: 38.0625rem;
+
+			@media (max-width: $mediumMaxWidth) {
+				width: 100%;
+			}
+
+			.infoItem {
+				width: 100%;
+				height: 3.5rem;
+				border-radius: 0.625rem;
+				margin-bottom: 1.25rem;
+
+				@media (max-width: $mediumMaxWidth) {
+					height: 5.5rem;
+					flex-direction: column;
+				}
+
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	.description {
+		width: 100%;
+		height: 25rem;
+		border-radius: 0.625rem;
+
+		@media (max-width: $mediumMaxWidth) {
+			font-size: 1.25rem;
+		}
+	}
+}

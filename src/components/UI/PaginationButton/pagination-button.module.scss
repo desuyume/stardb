@@ -1,0 +1,52 @@
+@import 'assets/styles/variables.scss';
+
+.paginationButtonLeft {
+	width: 3.125rem;
+	height: 3.125rem;
+	border: 0.0625rem solid $light;
+	background-color: transparent;
+	border-radius: 0.625rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 2.1875rem;
+	cursor: pointer;
+	transition: $primaryTransition;
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: default;
+	}
+
+	&:hover:not(:disabled) {
+		border: 0.0625rem solid $yellow;
+	}
+}
+
+.paginationButtonRight {
+	width: 9.375rem;
+	height: 3.125rem;
+	background-color: $light;
+	border-radius: 0.625rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 2.1875rem;
+	cursor: pointer;
+	transition: $primaryTransition;
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: default;
+	}
+
+	&:hover:not(:disabled) {
+		background-color: $yellow;
+	}
+
+	& > p {
+		font-size: 1.25rem;
+		color: $dark;
+		margin-right: 1.25rem;
+	}
+}

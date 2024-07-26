@@ -1,0 +1,89 @@
+@import 'variables';
+@import 'font-faces';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: $light;
+	line-height: 1;
+}
+
+html {
+	font-family: $primaryFontFamily;
+	font-weight: normal;
+	background-color: $dark;
+}
+
+#root {
+	width: 90rem;
+	margin: 0 auto;
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+	padding-left: 5rem;
+	padding-right: 5rem;
+
+	@media (max-width: $mediumMaxWidth) {
+		width: 100%;
+		padding-top: 1.25rem;
+		padding-bottom: 1.25rem;
+		padding-left: 0.625rem;
+		padding-right: 0.625rem;
+	}
+}
+
+h1,
+h2 {
+	color: $yellow;
+	font-weight: 500;
+	font-size: 4.375rem;
+
+	@media (max-width: $mediumMaxWidth) {
+		font-size: 2.5rem;
+		line-height: 1.2;
+	}
+}
+
+a {
+	text-decoration: none;
+	color: $light;
+	transition: $primaryTransition;
+
+	&:hover {
+		color: $yellow;
+	}
+}
+
+input,
+select {
+	color: $dark;
+}
+
+button {
+	border: none;
+	outline: none;
+}
+
+section {
+	margin-top: 9.375rem;
+
+	@media (max-width: $mediumMaxWidth) {
+		margin-top: 4.375rem;
+	}
+}
+
+.flex {
+	display: flex;
+}
+.inline-flex {
+	display: inline-flex;
+}
+.items-center {
+	align-items: center;
+}
+.self-center {
+	align-self: center;
+}
+.underline {
+	text-decoration: underline;
+}

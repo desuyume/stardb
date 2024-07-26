@@ -1,0 +1,12 @@
+.pagination {
+	margin-right: 0.625rem;
+
+	&:last-of-type {
+		margin-right: 0;
+	}
+
+	.currentPage,
+	.pageLink {
+		font-size: 1.25rem;
+	}
+}

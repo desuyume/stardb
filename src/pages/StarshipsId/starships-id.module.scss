@@ -1,0 +1,100 @@
+@import 'assets/styles/variables.scss';
+
+section.starshipsId {
+	h2 {
+		margin-bottom: 3.75rem;
+		word-break: break-all;
+
+		@media (max-width: $mediumMaxWidth) {
+			margin-bottom: 1.1875rem;
+		}
+	}
+
+	.infoContainer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 5rem;
+
+		@media (max-width: $mediumMaxWidth) {
+			flex-direction: column;
+			margin-bottom: 1.25rem;
+		}
+
+		.cardImage {
+			width: 39rem;
+			height: 26.1875rem;
+			object-fit: cover;
+			border-radius: 0.625rem;
+
+			@media (max-width: $mediumMaxWidth) {
+				width: 100%;
+				height: auto;
+				aspect-ratio: 340/228;
+				margin-bottom: 1.25rem;
+			}
+		}
+
+		.info {
+			width: 38.0625rem;
+
+			@media (max-width: $mediumMaxWidth) {
+				width: 100%;
+			}
+
+			.infoItem {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				margin-bottom: 1.25rem;
+
+				@media (max-width: $mediumMaxWidth) {
+					flex-direction: column;
+				}
+
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+
+				.infoTitle {
+					font-size: 1.75rem;
+					line-height: 1.4;
+					margin-top: 0.75rem;
+					margin-right: 0.625rem;
+
+					@media (max-width: $mediumMaxWidth) {
+						font-size: 1.5rem;
+						margin-top: 0;
+						margin-right: 0;
+						margin-bottom: 0.75rem;
+					}
+				}
+
+				.infoValue {
+					font-size: 2.5rem;
+					font-weight: 500;
+					line-height: 1.4;
+					text-align: right;
+					overflow: hidden;
+					text-overflow: ellipsis;
+
+					@media (max-width: $mediumMaxWidth) {
+						font-size: 1.875rem;
+						text-align: left;
+						word-break: break-all;
+					}
+				}
+			}
+		}
+	}
+
+	.description {
+		width: 100%;
+		font-size: 2.25rem;
+		line-height: 1.4;
+
+		@media (max-width: $mediumMaxWidth) {
+			font-size: 1.25rem;
+		}
+	}
+}

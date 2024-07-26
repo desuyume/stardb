@@ -1,0 +1,53 @@
+@import 'assets/styles/variables.scss';
+
+section.main {
+	margin-top: 9.75rem;
+
+	@media (max-width: $mediumMaxWidth) {
+		margin-top: 4.375rem;
+	}
+
+	.title {
+		margin-bottom: 3.75rem;
+
+		@media (max-width: $mediumMaxWidth) {
+			margin-bottom: 1.25rem;
+		}
+	}
+
+	.description {
+		width: 75rem;
+		position: relative;
+
+		@media (max-width: $mediumMaxWidth) {
+			width: 100%;
+		}
+
+		.descriptionText {
+			font-size: 2.25rem;
+			line-height: 1.4;
+
+			@media (max-width: $mediumMaxWidth) {
+				font-size: 1.25rem;
+			}
+		}
+
+		.blur {
+			width: 73.3125rem;
+			height: 15rem;
+			position: absolute;
+			top: 0.4375rem;
+			left: -0.1875rem;
+			background: linear-gradient(to right, #8b39b2 0%, #e2f063 100%);
+			opacity: 0.6;
+			filter: blur(12.5rem);
+			z-index: -1;
+
+			@media (max-width: $mediumMaxWidth) {
+				width: 93.5%;
+				height: 95.2%;
+				top: 2.38%;
+			}
+		}
+	}
+}

@@ -1,0 +1,106 @@
+@import 'assets/styles/variables.scss';
+
+header {
+	display: flex;
+	justify-content: space-between;
+
+	@media (max-width: $mediumMaxWidth) {
+		align-items: center;
+	}
+
+	.logo {
+		font-family: $secondaryFontFamily;
+		font-weight: 500;
+		font-size: 2.5rem;
+		z-index: 20;
+
+		@media (max-width: $mediumMaxWidth) {
+			font-size: 1.875rem;
+		}
+	}
+
+	.menu {
+		align-self: flex-end;
+
+		a {
+			font-size: 1.5rem;
+		}
+
+		a + a {
+			margin-left: 1.875rem;
+		}
+
+		@media (max-width: $mediumMaxWidth) {
+			display: none;
+		}
+	}
+
+	.menu,
+	.menuMobilePopup {
+		a {
+			&:hover {
+				color: $light;
+				text-decoration: underline;
+				text-decoration-skip-ink: none;
+			}
+
+			&.active {
+				color: $yellow;
+				text-decoration: underline;
+				text-decoration-skip-ink: none;
+			}
+		}
+	}
+
+	.menuMobileContainer {
+		display: none;
+
+		@media (max-width: $mediumMaxWidth) {
+			display: block;
+		}
+
+		.menuMobileButton {
+			display: none;
+
+			@media (max-width: $mediumMaxWidth) {
+				display: block;
+				position: relative;
+				outline: none;
+				z-index: 20;
+				border: none;
+				background-color: transparent;
+				cursor: pointer;
+			}
+		}
+
+		.menuMobilePopup {
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			visibility: hidden;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			position: fixed;
+			inset: 0;
+			padding-top: 3.125rem;
+			background-color: $dark;
+			z-index: 10;
+			transition: $primaryTransition;
+
+			&.open {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			a {
+				font-size: 3.75rem;
+				line-height: 1.2;
+			}
+			a + a {
+				margin-top: 0.625rem;
+			}
+		}
+	}
+}
