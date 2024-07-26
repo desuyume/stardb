@@ -1,1 +1,1 @@
-export * from './QueryProvider.tsx'
+export * from './QueryProvider'

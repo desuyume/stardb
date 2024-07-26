@@ -22,21 +22,21 @@ export const getStarshipId = (url: string) => {
 	return urlArray.at(-2)
 }
 
-export const generateQueryString = (parameters?: {
-	[key: string]: string | string[]
+export const generateQueryString = (searchParams?: {
+	[key: string]: any
 }): string => {
-	if (!parameters) return ''
+	if (!searchParams) return ''
 
 	const queryParameters: string[] = []
 
-	for (const key in parameters) {
-		if (!parameters[key]) continue
+	for (const key in searchParams) {
+		if (!searchParams[key]) continue
 
 		if (
-			parameters.hasOwnProperty.call(parameters, key) &&
-			parameters[key] !== undefined
+			searchParams.hasOwnProperty.call(searchParams, key) &&
+			searchParams[key] !== undefined
 		) {
-			const parameterValue = parameters[key]
+			const parameterValue = searchParams[key]
 			if (Array.isArray(parameterValue)) {
 				for (const value of parameterValue) {
 					queryParameters.push(

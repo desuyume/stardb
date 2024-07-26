@@ -32,8 +32,6 @@ const Pagination: FC<{
 	}
 
 	useEffect(() => {
-		console.log(totalPages)
-
 		if (currentPage === 1) return
 
 		if (currentPage > totalPages) {
