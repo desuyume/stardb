@@ -135,12 +135,16 @@ const Starships: FC = () => {
 
 			<div className={styles.cards}>
 				{(isLoading || isFetching) && <StarshipsSkeleton />}
-				{(isError && error.response.status === 404) ||
-					(!isLoading && !starshipsResponse?.data.results.length && (
-						<div className={styles.error}>
-							<p>Starships not found</p>
-						</div>
-					))}
+				{isError && error.response.status === 404 && (
+					<div className={styles.error}>
+						<p>Starships not found</p>
+					</div>
+				)}
+				{!isLoading && !isError && !starshipsResponse?.data.results.length && (
+					<div className={styles.error}>
+						<p>Starships not found</p>
+					</div>
+				)}
 				{isError && error.response.status !== 404 && (
 					<div className={styles.error}>
 						<p>Something went wrong</p>
