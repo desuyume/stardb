@@ -1,0 +1,8 @@
+@mixin cut-text($rows) {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $rows;
+	text-overflow: ellipsis;
+	word-break: break-all;
+}

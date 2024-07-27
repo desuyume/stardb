@@ -75,8 +75,7 @@ section.starshipsId {
 					font-weight: 500;
 					line-height: 1.4;
 					text-align: right;
-					overflow: hidden;
-					text-overflow: ellipsis;
+					word-break: break-all;
 
 					@media (max-width: $mediumMaxWidth) {
 						font-size: 1.875rem;
